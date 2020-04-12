@@ -1,7 +1,11 @@
 package hu.bme.mit.spaceship;
 
 /**
+<<<<<<< HEAD
 * Line change for task 3
+=======
+* Line change for task 3 - branch b
+>>>>>>> branch-b
 */
 public class GT4500 implements SpaceShip {
 

@@ -1,11 +1,13 @@
 package hu.bme.mit.spaceship;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Random;
 
 /**
 * Class storing and managing the torpedoes of a ship
 *
-* (Deliberately contains bugs.)
+* (Deliberately contains bugs.) FIXED BUGS RESOLVED CONVERSATION BASED ON NILUFERS INPUT
 */
 public class TorpedoStore {
 
@@ -30,18 +32,22 @@ public class TorpedoStore {
 
   public boolean fire(int numberOfTorpedos){
     if(numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount){
-      new IllegalArgumentException("numberOfTorpedos");
     }
 
     boolean success = false;
 
     // simulate random overheating of the launcher bay which prevents firing
-    Random generator = new Random();
+    Random generator;
+    try{
+      generator = SecureRandom.getInstanceStrong();
+    }catch (NoSuchAlgorithmException e){
+      return success;
+    }
     double r = generator.nextDouble();
 
     if (r >= FAILURE_RATE) {
       // successful firing
-      this.torpedoCount =- numberOfTorpedos;
+      this.torpedoCount -= numberOfTorpedos;
       success = true;
     } else {
       // simulated failure

@@ -7,8 +7,12 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
 
+		<sonar.projectKey>BrendaHer_ivt-lab</sonar.projectKey>
+		<sonar.organization>brendaher</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.login>fed9c7e85309138aa4820c82f5a25512f861bc81</sonar.login>
+	  </properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
